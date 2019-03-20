@@ -18,8 +18,11 @@ class ImagesService
     public function get()
     {
         $images = collect(Storage::files('/public/kittens'))
-            ->sortByDesc(function ($file) {
-                Storage::lastModified($file);
+            ->sortBy(function ($file) {
+                return Storage::lastModified($file);
+            })
+            ->map(function($file) {
+                return Storage::url($file);
             })
             ->take(5);
 

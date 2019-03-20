@@ -1,3 +1,4 @@
+sudo: true
 dist: xenial
 
 jobs:
@@ -11,4 +12,4 @@ jobs:
       - docker tag humanoo $DOCKER_USERNAME/humanoo
       - docker push $DOCKER_USERNAME/humanoo
     - stage: test
-      script: docker run --rm $DOCKER_USERNAME/humanoo sh -c "vendor/bin/phpunit"
+      script: docker run -v $(pwd):/app -ti --rm php:7.2 /app/vendor/bin/phpunit /app/tests

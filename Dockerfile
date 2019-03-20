@@ -13,12 +13,12 @@ RUN apt-get update -y && apt-get install -y wget \
 
 RUN rm -rf /var/cache/apt/*
 
-COPY ./.docker/cron /etc/cron.d/
-RUN chmod +x /etc/cron.d/cron
+COPY ./.docker/laravel /etc/cron.d/
+RUN chmod +x /etc/cron.d/laravel
 
 RUN touch /var/log/cron.log
 
-RUN crontab /etc/cron.d/cron
+RUN crontab /etc/cron.d/laravel
 
 WORKDIR /app
 

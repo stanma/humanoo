@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
  * Class fetchImages
  * @package App\Console\Commands
  */
-class fetchImages extends Command
+class FetchImages extends Command
 {
     /**
      * The name and signature of the console command.
@@ -26,7 +26,7 @@ class fetchImages extends Command
     protected $description = 'fetches images from https://cataas.com/cat/cute';
 
     /**
-     * fetchImages constructor.
+     * FetchImages constructor.
      */
     public function __construct()
     {
