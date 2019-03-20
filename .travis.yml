@@ -14,5 +14,6 @@ jobs:
     - stage: test
       script:
       - composer install
+      - cp .env.example .env
       - php artisan key:generate
       - docker run -v `pwd`:/app -ti --rm php:7.2 /app/vendor/bin/phpunit /app/tests

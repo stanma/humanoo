@@ -27,7 +27,7 @@ COPY . .
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
 RUN composer install
-RUN touch .env
+COPY .env.example .env
 RUN php artisan key:generate
 
 RUN php artisan storage:link
