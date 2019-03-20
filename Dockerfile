@@ -27,6 +27,7 @@ COPY . .
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
 RUN composer install
+RUN php -r \"file_exists('.env') || copy('.env.example', '.env');\"
 RUN php artisan key:generate
 
 RUN php artisan storage:link
