@@ -13,7 +13,6 @@ jobs:
       - docker push $DOCKER_USERNAME/humanoo
     - stage: test
       script:
-      - curl -sS https://getcomposer.org/installer | php
-      - mv composer.phar /usr/local/bin/composer
       - composer install
+      - php artisan key:generate
       - docker run -v `pwd`:/app -ti --rm php:7.2 /app/vendor/bin/phpunit /app/tests
