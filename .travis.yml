@@ -11,4 +11,4 @@ jobs:
       - docker tag humanoo $DOCKER_USERNAME/humanoo
       - docker push $DOCKER_USERNAME/humanoo
     - stage: test
-      script: docker run --rm $DOCKER_USERNAME/humanoo
+      script: docker run --rm $DOCKER_USERNAME/humanoo sh -c "vendor/bin/phpunit"
